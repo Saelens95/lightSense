@@ -1,0 +1,33 @@
+//set pin numbers
+//const won't change
+
+const int LEDPin = D2;   //the number of the LED pin
+const int LDRPin = A0;  //the number of the LDR pin
+ 
+ 
+void setup() {
+ 
+  Serial.begin(9600);
+  pinMode(LEDPin, OUTPUT);  //initialize the LED pin as an output
+  pinMode(LDRPin, INPUT);   //initialize the LDR pin as an input
+}
+ 
+void loop() {
+ 
+  int LDRStatus = analogRead(LDRPin);   //read the status of the LDR value
+ 
+  //check if the LDR status is <= 300
+  //if it is, the LED is HIGH
+ 
+   if (LDRStatus <=300) {
+ 
+    digitalWrite(LEDPin, HIGH);               //turn LED on
+    Serial.println("LDR is DARK, LED is ON");
+    
+   }
+  else {
+ 
+    digitalWrite(LEDPin, LOW);          //turn LED off
+    Serial.println("---------------");
+  }
+}
